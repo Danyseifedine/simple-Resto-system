@@ -212,7 +212,7 @@
             const toast = document.createElement('div');
             console.log(toast)
             toast.className = 'success-toast';
-            toast.innerHTML = 'Your account has been added to newsletter';
+            toast.innerHTML = 'Message sent successfully';
 
             // Style the toast
             toast.style.position = 'fixed';

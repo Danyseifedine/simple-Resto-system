@@ -1,4 +1,4 @@
-<header id="header" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+<header id="header" class="fixed w-full z-50 transition-all duration-300 {{ request()->routeIs('allergies') ? 'bg-black' : 'bg-transparent' }}">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="index.html" class="text-2xl md:text-3xl font-bold font-serif">
             <img src="/images/Casa.png" alt="Casa de Familia Logo" class="w-30 h-20">

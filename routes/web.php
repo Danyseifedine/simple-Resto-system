@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\DeepSeekController;
 
 
 
@@ -64,7 +65,7 @@ function defineRoutes()
 
     Route::get("/faq", function () {
         return view('web.faq');
-    })->middleware('auth')->name('faq');
+    })->name('faq');
 
     Route::get("/events", function () {
         $events = Event::all();
@@ -85,4 +86,8 @@ function defineRoutes()
 
         include __DIR__ . DIRECTORY_SEPARATOR . 'dashboard.php';
     });
+
+    // DeepSeek Routes
+    Route::get('/allergies', [DeepSeekController::class, 'index'])->name('allergies');
+    Route::post('/allergies/send', [DeepSeekController::class, 'sendRequest'])->name('allergies.send');
 }
