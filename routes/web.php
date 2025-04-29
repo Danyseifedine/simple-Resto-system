@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Event;
 use App\Models\NewsLetter;
+use App\Models\Billings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -83,6 +84,25 @@ function defineRoutes()
 
     Route::middleware(['verified'])->group(function () {
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        Route::post('/checkout', function (Request $request) {
+            $selectedItems = json_decode($request->selected_items);
+            $totalPrice = (float)$request->total_price;
+
+            // dd($selectedItems, $totalPrice);
+
+            // Validate that selected_items is an array
+            if (!is_array($selectedItems)) {
+                return redirect()->back()->with('error', 'Invalid selection');
+            }
+
+            // Create billing record with JSON data
+            Billings::create([
+                'menu_id' => $selectedItems,
+                'final_price' => $totalPrice
+            ]);
+
+            return redirect()->route('menu')->with('success', 'Checkout completed successfully!');
+        })->name('checkout.store');
 
         include __DIR__ . DIRECTORY_SEPARATOR . 'dashboard.php';
     });

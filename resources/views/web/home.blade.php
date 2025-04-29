@@ -174,6 +174,66 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 8vw, 5.5rem);
+            line-height: 1.1;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+            background: white;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            letter-spacing: 1px;
+            line-height: 1.6;
+            color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            padding: 0 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: clamp(2rem, 6vw, 3.5rem);
+                padding: 0 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 2.5vw, 1.25rem);
+                padding: 0 1.5rem;
+            }
+
+            .hero-button-group {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: clamp(1.75rem, 5vw, 2.5rem);
+                padding: 0 0.75rem;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.875rem, 2vw, 1rem);
+                padding: 0 1rem;
+            }
         }
     </style>
 @endsection
@@ -183,14 +243,14 @@
     <main>
         <!-- Enhanced Hero Section -->
         <section class="hero-section relative flex items-center justify-center"
-            style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); height: 100vh;">
+            style="background-image: url('/images/hero.jpg'); height: 100vh;">
             <!-- Background overlay with gradient -->
             <div class="hero-overlay"></div>
 
             <!-- Main content -->
             <div class="container mx-auto px-4 z-10 text-center hero-content">
                 <h1 class="hero-title">
-                    Casa de Familia
+                    Each Family has a Story… Welcome to Ours
                 </h1>
 
                 <p class="hero-subtitle">
@@ -327,9 +387,9 @@
                         Subscribe to our newsletter to receive updates on special events, seasonal menus, and exclusive
                         offers.
                     </p>
-                    <form form-id="newsletter-form" on-success="handleFormSuccess" http-request route="{{ route('newsletter.store') }}"
-                        identifier="single-form-post-handler" serialize-as="formdata" feedback
-                        class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <form form-id="newsletter-form" on-success="handleFormSuccess" http-request
+                        route="{{ route('newsletter.store') }}" identifier="single-form-post-handler"
+                        serialize-as="formdata" feedback class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
                         <input type="email" placeholder="Your email address" name="email" feedback-id="email-feedback"
                             class="flex-grow px-4 py-3 border border-gray-300 focus:border-black focus:outline-none">
                         <button type="submit" submit-form-id="newsletter-form"
@@ -398,11 +458,13 @@
             }
         });
 
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
         });
     </script>
-  
 @endsection

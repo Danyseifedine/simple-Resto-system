@@ -321,5 +321,47 @@ class DatabaseSeeder extends Seeder
         foreach ($events as $eventData) {
             \App\Models\Event::create($eventData);
         }
+
+        // Seed billings
+
+        // Seed billings
+        // $billings = [
+        //     [
+        //         'menu_id' => json_encode([1, 3, 5]),
+        //         'final_price' => 45.99
+        //     ],
+        //     [
+        //         'menu_id' => json_encode([2, 4]),
+        //         'final_price' => 32.50
+        //     ],
+        //     [
+        //         'menu_id' => json_encode([6, 8, 10]),
+        //         'final_price' => 58.75
+        //     ],
+        //     [
+        //         'menu_id' => json_encode([7, 9]),
+        //         'final_price' => 29.99
+        //     ],
+        //     [
+        //         'menu_id' => json_encode([1, 5, 11]),
+        //         'final_price' => 42.25
+        //     ],
+        //     [
+        //         'menu_id' => json_encode([3, 6, 9]),
+        //         'final_price' => 37.80
+        //     ],
+        //     [
+        //         'menu_id' => json_encode([2, 8, 11]),
+        //         'final_price' => 51.45
+        //     ],
+        //     [
+        //         'menu_id' => json_encode([4, 7, 10]),
+        //         'final_price' => 48.60
+        //     ]
+        // ];
+
+        // foreach ($billings as $billingData) {
+        //     \App\Models\Billings::create($billingData);
+        // }
     }
 }

@@ -54,6 +54,12 @@ return [
             'permissions' => ["contact-view-all"],
         ],
         [
+            'icon' => 'bi bi-cash-coin fs-2',
+            'title' => 'Billings',
+            'link' => 'dashboard.billings.index',
+            'is_route' => true,
+        ],
+        [
             'icon' => 'bi bi-envelope-fill fs-2',
             'title' => 'Newsletter',
             'link' => 'dashboard.newsLetters.index',

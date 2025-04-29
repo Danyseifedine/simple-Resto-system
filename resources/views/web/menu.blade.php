@@ -12,12 +12,18 @@
             border: 1px solid transparent;
             border-radius: 0.25rem;
             background-color: #fafafa;
+            cursor: pointer;
         }
 
         .menu-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             border-color: #e5e5e5;
+        }
+
+        .menu-card.selected {
+            border-color: #10B981;
+            background-color: #F0FDF4;
         }
 
         .menu-image {
@@ -63,6 +69,58 @@
             line-height: 1.6;
         }
 
+        /* Checkout Bar Styles */
+        #checkout-bar {
+            position: fixed;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            z-index: 50;
+            min-width: 320px;
+            max-width: 90vw;
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            display: none;
+        }
+
+        #selected-items {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .selected-item {
+            background: #EFF6FF;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .selected-item .remove-item {
+            color: #EF4444;
+            cursor: pointer;
+        }
+
+        #checkout-btn {
+            background: #10B981;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        #checkout-btn:hover {
+            background: #059669;
+        }
+
         /* Responsive styles */
         @media (min-width: 426px) {
             .menu-header {
@@ -101,7 +159,6 @@
     </style>
 @endsection
 
-
 @section('content')
     <main>
         <!-- Updated Hero Section with real image and reduced height -->
@@ -117,6 +174,15 @@
                 </p>
             </div>
         </section>
+
+        @if (session('success'))
+            <div class="bg-green-100 mt-10 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6 mx-auto max-w-4xl shadow-sm"
+                role="alert">
+                <span class="block sm:inline">{{ session('success') }}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                </span>
+            </div>
+        @endif
 
         <!-- Menu Navigation -->
         <section class="py-12 bg-white">
@@ -144,7 +210,8 @@
 
                                 @if ($categoryMenus->count() > 0)
                                     @foreach ($categoryMenus as $menu)
-                                        <div class="menu-card">
+                                        <div class="menu-card" data-id="{{ $menu->id }}" data-name="{{ $menu->name }}"
+                                            data-price="{{ $menu->price }}">
                                             <img src="{{ $menu->image }}" alt="{{ $menu->name }}" class="menu-image">
                                             <div class="menu-content">
                                                 <div class="menu-header">
@@ -168,10 +235,97 @@
                 </div>
             </div>
         </section>
+
+        <!-- Checkout Bar -->
+        <div id="checkout-bar">
+            <form action="{{ route('checkout.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="selected_items" id="selected-items-input">
+                <input type="hidden" name="total_price" id="total-price-input">
+                <div id="selected-items"></div>
+                <button id="checkout-btn">Checkout</button>
+            </form>
+        </div>
     </main>
 @endsection
 
 @section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selected = {};
+            const checkoutBar = document.getElementById('checkout-bar');
+            const selectedItemsDiv = document.getElementById('selected-items');
+            const selectedItemsInput = document.getElementById('selected-items-input');
+            const totalPriceInput = document.getElementById('total-price-input');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            // Handle menu card click
+            document.querySelectorAll('.menu-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const price = this.dataset.price;
+
+                    if (selected[id]) {
+                        delete selected[id];
+                        this.classList.remove('selected');
+                    } else {
+                        selected[id] = {
+                            name,
+                            price
+                        };
+                        this.classList.add('selected');
+                    }
+                    updateCheckoutBar();
+                });
+            });
+
+            function updateCheckoutBar() {
+                selectedItemsDiv.innerHTML = '';
+                const items = Object.entries(selected);
+                let totalPrice = 0;
+
+                if (items.length > 0) {
+                    checkoutBar.style.display = 'block';
+                    items.forEach(([id, item]) => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'selected-item';
+                        itemDiv.innerHTML = `
+                            <span>${item.name}</span>
+                            <span class="remove-item" data-id="${id}">×</span>
+                        `;
+                        selectedItemsDiv.appendChild(itemDiv);
+                        totalPrice += parseFloat(item.price);
+                    });
+
+                    // Update hidden inputs
+                    selectedItemsInput.value = JSON.stringify(Object.keys(selected));
+                    totalPriceInput.value = totalPrice;
+                } else {
+                    checkoutBar.style.display = 'none';
+                    selectedItemsInput.value = '';
+                    totalPriceInput.value = '';
+                }
+            }
+
+            // Handle remove item click
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-item')) {
+                    const id = e.target.dataset.id;
+                    delete selected[id];
+                    document.querySelector(`.menu-card[data-id="${id}"]`).classList.remove('selected');
+                    updateCheckoutBar();
+                }
+            });
+
+            // Handle checkout button click
+            checkoutBtn.addEventListener('click', function() {
+                // Here you can add the checkout logic
+                console.log('Checkout items:', selected);
+                // You can redirect to a checkout page or show a modal
+            });
+        });
+    </script>
     <script src="{{ asset('js/web/menu.js') }}"></script>
     <script src="{{ asset('js/web/main.js') }}"></script>
 @endsection

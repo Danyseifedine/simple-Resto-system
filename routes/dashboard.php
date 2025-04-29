@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\Pages\UserController;
 // datatable controller
 use Illuminate\Support\Facades\Route;
 // Datatable Controllers
+use App\Http\Controllers\Dashboard\Pages\BillingsController;
 use App\Http\Controllers\Dashboard\Pages\NewsLetterController;
 use App\Http\Controllers\Dashboard\Pages\ContactController;
 use App\Http\Controllers\Dashboard\Pages\MenuController;
@@ -154,7 +155,27 @@ Route::prefix('dashboard')->middleware('permission:access-dashboard')->name('das
 
     // ======================================================================= //
     // ==================== END NEWSLETTER DATATABLE ========================= //
+
     // ======================================================================= //
+    // ====================== START BILLINGS DATATABLE =========================== //
+    // ======================================================================= //
+
+    Route::controller(BillingsController::class)
+        ->prefix('billings')
+        ->name('billings.')
+        ->group(function () {
+            Route::post('/update', 'update')->name('update');
+            Route::get('/{id}/show', 'show')->name('show');
+            Route::get('/datatable', 'datatable')->name('datatable');
+    });
+
+    Route::resource('billings', BillingsController::class)
+        ->except(['show', 'update']);
+
+    // ======================================================================= //
+    // ====================== END BILLINGS DATATABLE =========================== //
+    // ======================================================================= //
+// ======================================================================= //
 
     // Profile routes
     Route::controller(ProfileController::class)->prefix('profile')->name('profile.')->group(function () {

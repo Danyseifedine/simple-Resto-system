@@ -31,4 +31,9 @@ class Menu extends Model implements HasMedia
     {
         return $this->getFirstMediaUrl('image');
     }
+
+    public function billings()
+    {
+        return $this->hasMany(Billings::class);
+    }
 }

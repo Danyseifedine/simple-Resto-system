@@ -1,4 +1,5 @@
-<header id="header" class="fixed w-full z-50 transition-all duration-300 {{ request()->routeIs('allergies') ? 'bg-black' : 'bg-transparent' }}">
+<header id="header"
+    class="fixed w-full z-50 transition-all duration-300 {{ request()->routeIs('allergies') ? 'bg-black' : 'bg-transparent' }}">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="index.html" class="text-2xl md:text-3xl font-bold font-serif">
             <img src="/images/Casa.png" alt="Casa de Familia Logo" class="w-30 h-20">
@@ -15,6 +16,8 @@
             <a href="{{ route('about') }}" class="text-white hover:text-white transition-colors nav-link">About</a>
             <a href="{{ route('contact') }}" class="text-white hover:text-white transition-colors nav-link">Contact</a>
             <a href="{{ route('faq') }}" class="text-white hover:text-white transition-colors nav-link">FAQ</a>
+            <a href="{{ route('allergies') }}"
+                class="text-white hover:text-white transition-colors nav-link">Allergies</a>
             @if (auth()->check())
                 <a href="{{ route('logout') }}"
                     class="text-white hover:text-white transition-colors nav-link">Logout</a>
@@ -43,17 +46,32 @@
     <div id="mobile-menu"
         class="md:hidden hidden bg-black bg-opacity-95 w-full absolute top-full left-0 py-4 shadow-lg">
         <div class="container mx-auto px-4 flex flex-col space-y-4">
-            <a href="index.html"
+            <a href="{{ route('welcome') }}"
                 class="text-white hover:text-gray-300 transition-colors py-2 border-b border-gray-800">Home</a>
-            <a href="menu.html"
+            <a href="{{ route('menu') }}"
                 class="text-white hover:text-gray-300 transition-colors py-2 border-b border-gray-800">Menu</a>
-            <a href="events.html"
+            <a href="{{ route('events') }}"
                 class="text-white hover:text-gray-300 transition-colors py-2 border-b border-gray-800">Events</a>
-            <a href="about.html"
+            <a href="{{ route('about') }}"
                 class="text-white hover:text-gray-300 transition-colors py-2 border-b border-gray-800">About</a>
-            <a href="contact.html"
+            <a href="{{ route('contact') }}"
                 class="text-white hover:text-gray-300 transition-colors py-2 border-b border-gray-800">Contact</a>
-            <a href="faq.html" class="text-white hover:text-gray-300 transition-colors py-2">FAQ</a>
+            <a href="{{ route('faq') }}" class="text-white hover:text-gray-300 transition-colors py-2">FAQ</a>
+            <a href="{{ route('allergies') }}"
+                class="text-white hover:text-gray-300 transition-colors py-2 border-b border-gray-800">Allergies</a>
+            @if (auth()->check())
+                <a href="{{ route('logout') }}"
+                    class="text-white hover:text-gray-300 transition-colors py-2 border-b border-gray-800">Logout</a>
+            @else
+                <a href="{{ route('login') }}" class="text-white hover:text-gray-300 transition-colors py-2">Login /
+                    Register</a>
+            @endif
+
+            @role('admin')
+                <a href="{{ route('dashboard.index') }}"
+                    class="text-white hover:text-gray-300 transition-colors py-2 border-b border-gray-800">Dashboard</a>
+            @endrole
         </div>
     </div>
 </header>
+

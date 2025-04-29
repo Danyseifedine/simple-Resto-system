@@ -28,14 +28,14 @@
                         <h2 class="text-3xl md:text-4xl font-bold mb-6">Our History</h2>
                         <div class="w-20 h-1 bg-black mb-6"></div>
                         <p class="text-gray-700 mb-6 leading-relaxed">
-                            Casa de Familia was founded in 1985 by the Khoury family, who sought to bring the rich culinary
-                            traditions of Lebanon to the serene mountains of Falougha. What began as a small family
-                            restaurant has evolved into one of the region's most celebrated dining destinations.
+                            It all started with Wissam’s idea — a spark that quickly pulled in Bassel and Hadi for the ride.
+                            Three cousins, hitting our 50s and still chasing dreams, decided it was time to create something
+                            timeless: Casa de Família.
                         </p>
                         <p class="text-gray-700 mb-6 leading-relaxed">
-                            For over three decades, we have remained true to our roots while embracing innovation. Our
-                            recipes have been passed down through generations, preserving authentic flavors while
-                            incorporating contemporary techniques.
+                            We built a vintage spot where the food is hearty, the vibe is homey, and everyone’s treated like
+                            family. What began as a small idea over a few excited conversations has turned into a place full
+                            of stories, laughter, and unforgettable meals — and we can’t wait for you to be part of it.
                         </p>
                     </div>
                 </div>
@@ -47,8 +47,7 @@
             <div class="container mx-auto px-4">
                 <div class="flex flex-col md:flex-row-reverse items-center gap-12">
                     <div class="md:w-1/2" data-animate>
-                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                            alt="Our Philosophy" class="w-full h-auto shadow-xl rounded-sm">
+                        <img src="/images/vintage.jpg" alt="Our Philosophy" class="w-full h-auto shadow-xl rounded-sm">
                     </div>
                     <div class="md:w-1/2" data-animate>
                         <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Philosophy</h2>
@@ -141,7 +140,7 @@
         <section class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16" data-animate>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Meet Our Team</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Meet The Family</h2>
                     <div class="w-20 h-1 bg-black mx-auto mb-6"></div>
                     <p class="text-gray-700 max-w-3xl mx-auto">
                         The passionate individuals who bring Casa de Familia to life every day.
@@ -153,11 +152,10 @@
                     <div class="text-center" data-animate>
                         <img src="https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
                             alt="Michel Khoury" class="w-48 h-48 object-cover rounded-full mx-auto mb-6 shadow-lg">
-                        <h3 class="text-xl font-bold mb-2">Michel Khoury</h3>
-                        <p class="text-gray-600 mb-4">Executive Chef & Owner</p>
+                        <h3 class="text-xl font-bold mb-2">Wissam</h3>
+                        <p class="text-gray-600 mb-4">The heart and stomach</p>
                         <p class="text-gray-700 max-w-sm mx-auto">
-                            With over 30 years of culinary experience, Michel brings his passion for Lebanese cuisine and
-                            innovation to every dish at Casa de Familia.
+                            Loves food even more than he loves people (and trust us, he really loves people).
                         </p>
                     </div>
 
@@ -165,11 +163,10 @@
                     <div class="text-center" data-animate>
                         <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80"
                             alt="Nadia Khoury" class="w-48 h-48 object-cover rounded-full mx-auto mb-6 shadow-lg">
-                        <h3 class="text-xl font-bold mb-2">Nadia Khoury</h3>
-                        <p class="text-gray-600 mb-4">General Manager</p>
+                        <h3 class="text-xl font-bold mb-2">Hadi</h3>
+                        <p class="text-gray-600 mb-4">The wild card</p>
                         <p class="text-gray-700 max-w-sm mx-auto">
-                            Nadia ensures that every guest receives exceptional service and leaves with unforgettable
-                            memories of their dining experience.
+                            Can’t sit still, won’t sit still — and that’s exactly how we like it.
                         </p>
                     </div>
 
@@ -177,11 +174,10 @@
                     <div class="text-center" data-animate>
                         <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1968&q=80"
                             alt="Antoine Rizk" class="w-48 h-48 object-cover rounded-full mx-auto mb-6 shadow-lg">
-                        <h3 class="text-xl font-bold mb-2">Antoine Rizk</h3>
-                        <p class="text-gray-600 mb-4">Head Sommelier</p>
+                        <h3 class="text-xl font-bold mb-2">Bassel</h3>
+                        <p class="text-gray-600 mb-4">The Backbone</p>
                         <p class="text-gray-700 max-w-sm mx-auto">
-                            Antoine's expertise in Lebanese and international wines helps create perfect pairings that
-                            enhance our culinary offerings.
+                            The reliable one who makes sure every day at Casa de Família feels just right.
                         </p>
                     </div>
                 </div>
