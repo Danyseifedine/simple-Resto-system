@@ -33,6 +33,48 @@
                                     <option value="lupin">Lupin</option>
                                     <option value="sulfites">Sulfites</option>
                                     <option value="nightshades">Nightshades (Tomatoes, Peppers, etc.)</option>
+                                    <option value="corn">Corn</option>
+                                    <option value="beef">Beef</option>
+                                    <option value="pork">Pork</option>
+                                    <option value="chicken">Chicken</option>
+                                    <option value="lamb">Lamb</option>
+                                    <option value="garlic">Garlic</option>
+                                    <option value="onion">Onion</option>
+                                    <option value="citrus">Citrus Fruits</option>
+                                    <option value="berries">Berries</option>
+                                    <option value="stone_fruits">Stone Fruits (Peaches, Plums, etc.)</option>
+                                    <option value="melons">Melons</option>
+                                    <option value="avocado">Avocado</option>
+                                    <option value="kiwi">Kiwi</option>
+                                    <option value="banana">Banana</option>
+                                    <option value="pineapple">Pineapple</option>
+                                    <option value="mango">Mango</option>
+                                    <option value="coconut">Coconut</option>
+                                    <option value="chocolate">Chocolate</option>
+                                    <option value="caffeine">Caffeine</option>
+                                    <option value="alcohol">Alcohol</option>
+                                    <option value="yeast">Yeast</option>
+                                    <option value="msg">MSG (Monosodium Glutamate)</option>
+                                    <option value="food_coloring">Artificial Food Coloring</option>
+                                    <option value="preservatives">Preservatives</option>
+                                    <option value="artificial_sweeteners">Artificial Sweeteners</option>
+                                    <option value="legumes">Legumes (Beans, Lentils, etc.)</option>
+                                    <option value="mushrooms">Mushrooms</option>
+                                    <option value="sunflower_seeds">Sunflower Seeds</option>
+                                    <option value="poppy_seeds">Poppy Seeds</option>
+                                    <option value="flaxseeds">Flaxseeds</option>
+                                    <option value="chia_seeds">Chia Seeds</option>
+                                    <option value="honey">Honey</option>
+                                    <option value="mollusks">Mollusks (Oysters, Clams, etc.)</option>
+                                    <option value="carrageenan">Carrageenan</option>
+                                    <option value="annatto">Annatto</option>
+                                    <option value="salicylates">Salicylates</option>
+                                    <option value="histamine">Histamine-rich Foods</option>
+                                    <option value="fodmaps">FODMAPs</option>
+                                    <option value="fructose">Fructose</option>
+                                    <option value="lactose">Lactose</option>
+                                    <option value="sucrose">Sucrose</option>
+                                    <option value="maltose">Maltose</option>
                                 </select>
                             </div>
                             <div class="form-text text-muted text-center mt-2">
@@ -63,7 +105,8 @@
                             <div class="d-flex align-items-center mb-3">
                                 <h5 class="mb-0 me-auto"><i class="fas fa-utensils me-2 text-primary"></i>Recommended Foods
                                 </h5>
-                                <button id="copyButton" class="btn btn-sm btn-outline-primary" style="border-radius: 8px;">
+                                <button id="copyButton" class="btn btn-sm btn-outline-primary"
+                                    style="border-radius: 8px;">
                                     <i class="fas fa-copy me-1"></i> Copy
                                 </button>
                             </div>
